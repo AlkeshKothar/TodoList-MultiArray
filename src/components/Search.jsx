@@ -7,7 +7,7 @@ function Search(props) {
     //using states to manage filter
     const [ searchTerm, setSearchTerm] = useState('$%E_D^&*<<(yedtwfwss%wswsws^')
     const alldata = props.alldata
-    
+
     return (
         <div>
             <Table  className=" table-hover mt-4">
@@ -38,11 +38,14 @@ function Search(props) {
                 </Col>
                 </Row>
                 
-                {alldata.filter((val => {
-                    if (val.summary.includes(searchTerm)){
+                {alldata.filter( // eslint-disable-next-line
+                    ((val) => {
+                        // eslint-disable-next-line
+                    if (val.summary.includes(searchTerm))
                         return val
-                    }
-                })).map((value, key) =>{
+                    
+                                }
+                                )).map((value, key) =>{
                     return(
                             <Table striped bordered hover>
                             <Row>
